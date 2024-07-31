@@ -1,5 +1,5 @@
 import { CommandType } from "../core/command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 
 /**
@@ -26,7 +26,7 @@ const demoCommand: CommandType = {
       // 查看列表
       const output: ComponentOutputType = {
         type: "component",
-        component: defineAsyncComponent(() => import("./DemoListBox.vue")),
+        component: markRaw(defineAsyncComponent(() => import("./DemoListBox.vue"))),
         props: { demos: demoList },
       };
       terminal.writeResult(output);
@@ -36,9 +36,9 @@ const demoCommand: CommandType = {
       // 查看列表
       const output: ComponentOutputType = {
         type: "component",
-        component: defineAsyncComponent(
+        component: markRaw(defineAsyncComponent(
           () => import("./" + demoList[index - 1].value)
-        ),
+        )),
       };
       terminal.writeResult(output);
       return;
