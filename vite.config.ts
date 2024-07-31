@@ -18,7 +18,7 @@ export default defineConfig({
       },
     },
   },
-  base: "./", // 设置项目的根路径
+  base: "/", // 设置项目的根路径
   // 服务端渲染
   server: {
     // 是否开启 https
