@@ -36,16 +36,19 @@ const demoCommand: CommandType = {
       // 查看列表
       const output: ComponentOutputType = {
         type: "component",
-        component: markRaw(defineAsyncComponent(
-          () => import("./" + demoList[index - 1].value)
-        )),
+        component: markRaw(defineAsyncComponent(loadComponent(demoList[index - 1].value))),
       };
       terminal.writeResult(output);
       return;
     }
   },
 };
+const components = import.meta.glob('./*.vue');
 
+function loadComponent(name: string) {
+  debugger;
+  return components[`./${name}`];
+}
 const demoList: DemoType[] = [
   {
     name: "文字动画",

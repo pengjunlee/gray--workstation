@@ -1,0 +1,1 @@
+import{_ as a,o,c,E as _,G as t,g as s}from"./main.5b843e23.js";const d={},n=e=>(_("data-v-6f8e63e9"),e=e(),t(),e),i={class:"container"},r=n(()=>s("div",{class:"main"},[s("div",{class:"up"}),s("div",{class:"down"})],-1)),p=[r];function l(e,v){return o(),c("div",i,p)}var u=a(d,[["render",l],["__scopeId","data-v-6f8e63e9"]]);export{u as default};
