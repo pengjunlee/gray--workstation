@@ -87,6 +87,7 @@
 import {
   computed,
   defineAsyncComponent,
+  markRaw,
   onMounted,
   Ref,
   ref,
@@ -408,9 +409,9 @@ onMounted(() => {
   } else {
     const output: ComponentOutputType = {
       type: "component",
-      component: defineAsyncComponent(
+      component: markRaw(defineAsyncComponent(
         () => import("../../commands/toy/shop/TextAnimation.vue")
-      ),
+      )),
     };
     terminal.writeOutput(output);
     terminal.writeTextOutput(

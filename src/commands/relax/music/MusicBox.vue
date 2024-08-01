@@ -7,7 +7,7 @@
       marginheight="0"
       width="330"
       height="86"
-      src="//music.163.com/outchain/player?type=2&id=150422&auto=1&height=66"
+      :src="frameSrc"
     ></iframe>
     <div v-if="errorHint">{{ errorHint }}</div>
   </div>
@@ -17,11 +17,13 @@
 import { onMounted, ref, toRefs } from "vue";
 
 interface MusicBoxProps {
-  name: string;
+  id: string;
 }
 
+const frameSrc = ref();
+
 const props = withDefaults(defineProps<MusicBoxProps>(), {});
-const { name } = toRefs(props);
+const { id } = toRefs(props);
 const musicPath = ref("");
 const errorHint = ref("");
 
@@ -34,7 +36,7 @@ onMounted(async () => {
   // } else {
   //   errorHint.value = "未找到音乐";
   // }
-  musicPath.value = `https://music.163.com/song/media/outer/url?id=2166485129`;
+  frameSrc.value = `//music.163.com/outchain/player?type=2&auto=1&height=66&id=`+id.value;
 });
 </script>
 

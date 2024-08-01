@@ -1,5 +1,5 @@
 import { CommandType } from "../../core/command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 import addCommand from "./subCommands/addCommand";
 
@@ -10,7 +10,7 @@ import addCommand from "./subCommands/addCommand";
 const todoCommand: CommandType = {
   func: "todo",
   name: "待办事项",
-  desc: "记录和管理任务",
+  desc: "记录和管理待办事项",
   params: [
     {
       key: "subCommand",
@@ -23,12 +23,13 @@ const todoCommand: CommandType = {
     add: addCommand,
   },
   collapsible: true,
+  icon:"🧰",
   action(options, terminal) {
     const { _ } = options;
     if (_.length < 1) {
       const output: ComponentOutputType = {
         type: "component",
-        component: defineAsyncComponent(() => import("./TodoBox.vue")),
+        component: markRaw(defineAsyncComponent(() => import("./TodoBox.vue"))),
       };
       terminal.writeResult(output);
       return;

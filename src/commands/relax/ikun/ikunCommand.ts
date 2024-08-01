@@ -1,5 +1,5 @@
 import { CommandType } from "../../core/command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 
 /**
@@ -11,10 +11,11 @@ const ikunCommand: CommandType = {
   name: "ikun",
   options: [],
   collapsible: true,
+  icon: "🛥︎",
   action(options, terminal) {
     const output: ComponentOutputType = {
       type: "component",
-      component: defineAsyncComponent(() => import("./IkunBox.vue")),
+      component: markRaw(defineAsyncComponent(() => import("./IkunBox.vue"))),
       props: {},
     };
     terminal.writeResult(output);

@@ -1,5 +1,5 @@
 import { CommandType } from "../../core/command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 
 const baseUrl = "https://www.baidu.com/s";
@@ -10,7 +10,7 @@ const baseUrl = "https://www.baidu.com/s";
  */
 const bilibiliCommand: CommandType = {
   func: "bilibili",
-  name: "bilibili 搜索",
+  name: "bilibili快捷搜索",
   alias: ["bzhan", "bili"],
   params: [
     {
@@ -35,14 +35,14 @@ const bilibiliCommand: CommandType = {
     },
   ],
   collapsible: true,
-  icon: '🔍',
+  icon: '🔍️',
   action(options, terminal) {
     const { _, self, bvid } = options;
     // 优先打开视频
     if (bvid) {
       const output: ComponentOutputType = {
         type: "component",
-        component: defineAsyncComponent(() => import("./BilibiliBox.vue")),
+        component: markRaw(defineAsyncComponent(() => import("./BilibiliBox.vue"))),
         props: {
           bvid,
         },

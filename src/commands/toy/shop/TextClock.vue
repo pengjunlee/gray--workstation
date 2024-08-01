@@ -67,7 +67,7 @@ const clock = () => {
   seconds.value = [];
   var d = new Date();
   var mon = d.getMonth();
-  var day = d.getDay();
+  var day = d.getDate();
   var hour = d.getHours();
   var min = d.getMinutes();
   var sec = d.getSeconds();

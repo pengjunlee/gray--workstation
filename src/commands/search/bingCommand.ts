@@ -6,7 +6,7 @@ import { CommandType } from "../core/command";
  */
 const bingCommand: CommandType = {
   func: "bing",
-  name: "必应搜索",
+  name: "必应快捷搜索",
   alias: [],
   params: [
     {
@@ -24,6 +24,7 @@ const bingCommand: CommandType = {
       defaultValue: false,
     },
   ],
+  icon: '🔍️',
   action(options, terminal) {
     const { _, self } = options;
     const word = _.length > 0 ? _[0] : "";

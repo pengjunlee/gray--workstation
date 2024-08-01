@@ -6,7 +6,7 @@ import { CommandType } from "../core/command";
  */
 const baidudevCommand: CommandType = {
   func: "baidudev",
-  name: "百度开发者搜索",
+  name: "百度开发者快捷搜索",
   alias: ["dev"],
   params: [
     {
@@ -24,6 +24,7 @@ const baidudevCommand: CommandType = {
       defaultValue: false,
     },
   ],
+  icon: '🔍️',
   action(options, terminal) {
     const { _, self } = options;
     const word = _.length > 0 ? _[0] : "";

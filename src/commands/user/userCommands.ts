@@ -27,6 +27,7 @@ const userCommand: CommandType = {
     logout: logoutCommand,
   },
   options: [],
+  icon:"💁🏻",
   async action(options, terminal) {
     const { loginUser } = useUserStore();
     if (loginUser && loginUser.username !== LOCAL_USER.username) {

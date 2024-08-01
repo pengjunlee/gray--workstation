@@ -1,5 +1,5 @@
 import { CommandType } from "../../core/command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 
 /**
@@ -25,7 +25,7 @@ const jsonCommand: CommandType = {
     } else {
       const output: ComponentOutputType = {
         type: "component",
-        component: defineAsyncComponent(() => import("./JsonBox.vue")),
+        component: markRaw(defineAsyncComponent(() => import("./JsonBox.vue"))),
         props: { rawJson: _[0] },
       };
       terminal.writeResult(output);

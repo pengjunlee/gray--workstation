@@ -25,6 +25,7 @@ const loginCommand: CommandType = {
       required: true,
     },
   ],
+  icon:"💁🏻",
   async action(options, terminal) {
     const { username, password } = options;
     if (!username) {

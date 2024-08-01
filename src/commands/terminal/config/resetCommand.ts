@@ -10,6 +10,8 @@ const resetCommand: CommandType = {
   name: "重置终端配置",
   alias: [],
   options: [],
+  collapsible:false,
+  icon:"⚙",
   action(options, terminal): void {
     const { reset } = useTerminalConfigStore();
     reset();

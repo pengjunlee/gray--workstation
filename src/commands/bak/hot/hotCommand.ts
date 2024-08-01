@@ -1,5 +1,5 @@
 import { CommandType } from "../../core/command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 
 /**
@@ -22,7 +22,7 @@ const hotCommand: CommandType = {
   async action(options, terminal) {
     const output: ComponentOutputType = {
       type: "component",
-      component: defineAsyncComponent(() => import("./HotBox.vue")),
+      component: markRaw(defineAsyncComponent(() => import("./HotBox.vue"))),
       props: {},
     };
     terminal.writeResult(output);

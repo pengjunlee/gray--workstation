@@ -6,7 +6,7 @@ import { CommandType } from "../core/command";
  */
 const googleCommand: CommandType = {
   func: "google",
-  name: "Google 搜索",
+  name: "Google快捷搜索",
   alias: [],
   params: [
     {
@@ -24,6 +24,7 @@ const googleCommand: CommandType = {
       defaultValue: false,
     },
   ],
+  icon: '🔍️',
   action(options, terminal) {
     const { _, self } = options;
     const word = _.length > 0 ? _[0] : "";

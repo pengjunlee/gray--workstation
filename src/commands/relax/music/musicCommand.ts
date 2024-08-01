@@ -1,5 +1,5 @@
 import { CommandType } from "../../core/command";
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 
 /**
@@ -19,22 +19,24 @@ const musicCommand: CommandType = {
   ],
   options: [],
   collapsible: true,
+  icon: "🛥︎",
   action(options, terminal) {
-    const { _ } = options;
-    if (_.length < 1) {
-      terminal.writeTextErrorResult("参数不足");
-      return;
-    }
-    const name = _[0];
     const output: ComponentOutputType = {
       type: "component",
-      component: defineAsyncComponent(() => import("./MusicBox.vue")),
+      component: markRaw(defineAsyncComponent(() => import("./MusicBox.vue"))),
       props: {
-        name,
+        id:songList[Math.floor(Math.random() * songList.length)],
       },
     };
     terminal.writeResult(output);
   },
 };
+
+const songList:string[] = [
+  "29771231",
+"2611596618",
+"2611222522"
+
+]
 
 export default musicCommand;

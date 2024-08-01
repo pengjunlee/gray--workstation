@@ -11,6 +11,7 @@ const logoutCommand: CommandType = {
   func: "logout",
   name: "用户注销",
   options: [],
+  icon:"💁🏻",
   async action(options, terminal) {
     const res: any = await userLogout();
     const { setLoginUser } = useUserStore();

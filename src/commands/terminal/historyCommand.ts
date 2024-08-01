@@ -10,6 +10,7 @@ const historyCommand: CommandType = {
   alias: ["h"],
   options: [],
   collapsible: true,
+  icon:"⚙",
   action(options, terminal): void {
     const commandOutputTypes = terminal.listCommandHistory();
     // terminal.writeTextResult(`⭐️ 输入 ![序号] 可以快速执行某条历史命令`);

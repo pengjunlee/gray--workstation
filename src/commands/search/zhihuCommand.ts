@@ -6,7 +6,7 @@ import { CommandType } from "../core/command";
  */
 const zhihuCommand: CommandType = {
   func: "zhihu",
-  name: "知乎搜索",
+  name: "知乎快捷搜索",
   alias: [],
   params: [
     {
@@ -24,6 +24,7 @@ const zhihuCommand: CommandType = {
       defaultValue: false,
     },
   ],
+  icon: '🔍️',
   action(options, terminal) {
     const { _, self } = options;
     const word = _.length > 0 ? _[0] : "";

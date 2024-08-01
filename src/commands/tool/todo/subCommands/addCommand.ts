@@ -3,25 +3,27 @@ import { useTodoStore } from "../todoStore";
 import TaskType = Todo.TaskType;
 
 /**
- * 添加任务命令
+ * 添加待办事项命令
  * @author pengjunlee
  */
 const addCommand: CommandType = {
   func: "add",
-  name: "添加任务",
+  name: "添加待办事项",
   options: [
     {
       key: "name",
-      desc: "任务名称",
+      desc: "待办事项名称",
       alias: ["n"],
       type: "string",
       required: true,
     },
   ],
+  collapsible: true,
+  icon: "🧰",
   action(options: any, terminal: any) {
     const { name } = options;
     if (!name) {
-      terminal.writeTextErrorResult("请输入任务名称");
+      terminal.writeTextErrorResult("请输入待办事项名称");
       return;
     }
     const { addTask } = useTodoStore();
@@ -30,7 +32,7 @@ const addCommand: CommandType = {
     } as TaskType;
     const res = addTask(newTask);
     if (res) {
-      terminal.writeTextSuccessResult("添加任务成功");
+      terminal.writeTextSuccessResult("添加待办事项成功");
     } else {
       terminal.writeTextErrorResult("操作失败");
     }

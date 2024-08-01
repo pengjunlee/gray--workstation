@@ -17,6 +17,8 @@ const welcomeCommand: CommandType = {
     },
   ],
   options: [],
+  collapsible:false,
+  icon:"⚙",
   async action(options, terminal) {
     const { _ } = options;
     let welcomeTexts = _;

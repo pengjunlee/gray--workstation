@@ -17,6 +17,8 @@ const backgroundCommand: CommandType = {
     },
   ],
   options: [],
+  collapsible:false,
+  icon:"⚙",
   async action(options, terminal) {
     const { _ } = options;
     let url = _[0];

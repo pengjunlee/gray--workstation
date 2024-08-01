@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>💁🏻 🔍 ⭐️ help ⚙ 🧰 🧩 用来查看指定命令的具体用法，如：help search</div>
+    <div> ✨help✨用来查看指定命令的具体用法，如：⭐️ help search</div>
     <div>命令列表：</div>
     <div v-for="(command, index) in commandList" :key="index">
       <a-row :gutter="18">

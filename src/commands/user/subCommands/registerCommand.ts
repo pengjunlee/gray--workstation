@@ -31,6 +31,7 @@ const registerCommand: CommandType = {
       required: true,
     },
   ],
+  icon:"💁🏻",
   async action(options, terminal) {
     const { username, password, email } = options;
     if (!username) {

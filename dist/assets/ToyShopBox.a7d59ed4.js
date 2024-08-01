@@ -1,1 +1,0 @@
-import{_ as n,d as _,o as e,c as o,g as l,F as u,r as p,t}from"./main.6d5cf02e.js";const c=_({__name:"ToyShopBox",props:{toys:null},setup(r){return(d,i)=>(e(),o("div",null,[l("ul",null,[(e(!0),o(u,null,p(r.toys,(a,s)=>(e(),o("li",{key:s}," \u3010 "+t(s+1)+" \u3011 "+t(a.name)+"\uFF1A"+t(a.desc),1))),128))])]))}});var y=n(c,[["__scopeId","data-v-76398906"]]);export{y as default};

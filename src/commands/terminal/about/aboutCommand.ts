@@ -6,11 +6,13 @@ import ComponentOutputType = GrayTerminal.ComponentOutputType;
  * 查看网站本身信息命令
  * @author pengjunlee
  */
-const infoCommand: CommandType = {
-  func: "info",
+const aboutCommand: CommandType = {
+  func: "about",
   name: "查看本站信息",
-  alias: ["author", "about"],
+  alias: [],
   options: [],
+  collapsible:true,
+  icon:"⚙",
   action(options, terminal): void {
     const output: ComponentOutputType = {
       type: "component",
@@ -20,4 +22,4 @@ const infoCommand: CommandType = {
   },
 };
 
-export default infoCommand;
+export default aboutCommand;

@@ -7,7 +7,7 @@ import { baiduTranslateApi } from "../../../api/terminal";
  */
 const fanyiCommand: CommandType = {
   func: "fanyi",
-  name: "翻译",
+  name: "英汉互译",
   alias: ["fy"],
   params: [
     {
@@ -32,6 +32,8 @@ const fanyiCommand: CommandType = {
       defaultValue: "auto",
     },
   ],
+  collapsible: true,
+  icon: "🧰",
   async action(options, terminal) {
     const { _, from, to } = options;
     if (_.length < 1) {

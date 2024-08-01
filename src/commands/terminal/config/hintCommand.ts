@@ -7,8 +7,8 @@ import { useTerminalConfigStore } from "./terminalConfigStore";
  */
 const hintCommand: CommandType = {
   func: "hint",
-  name: "开关提示",
-  desc: "开启 / 关闭输入提示",
+  name: "开启/关闭命令提示",
+  desc: "",
   params: [
     {
       key: "switch",
@@ -17,6 +17,8 @@ const hintCommand: CommandType = {
     },
   ],
   options: [],
+  collapsible:false,
+  icon:"⚙",
   async action(options, terminal) {
     const { _ } = options;
     const { setOrToggleShowHint } = useTerminalConfigStore();

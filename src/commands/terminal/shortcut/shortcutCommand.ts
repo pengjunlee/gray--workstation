@@ -9,11 +9,12 @@ import ComponentOutputType = GrayTerminal.ComponentOutputType;
 const shortcutCommand: CommandType = {
   func: "shortcut",
   name: "快捷键",
-  desc: "查看快捷键",
+  desc: "",
   alias: [],
   params: [],
   options: [],
   collapsible: true,
+  icon:"⚙",
   action(options, terminal): void {
     const output: ComponentOutputType = {
       type: "component",

@@ -3,17 +3,17 @@ import { defineAsyncComponent, markRaw } from "vue";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
 
 /**
- * 特效示例命令
+ * 玩具命令
  * @author pengjunlee
  */
 const toyCommand: CommandType = {
   func: "toy",
-  name: "代码样例",
-  desc: "一些好玩的代码样例",
+  name: "一个玩具",
+  desc: "收集的一些好玩的前端代码特效",
   params: [
     {
       key: "index",
-      desc: "样例序号",
+      desc: "玩具序号",
       required: false,
     },
   ],
@@ -51,63 +51,63 @@ function loadComponent(name: string) {
 }
 const toyList: ToyType[] = [
   {
-    name: "文字动画",
+    name: "描绘文字",
     desc: "动态描绘出文字的效果",
     value: "TextAnimation.vue",
   },
   {
     name: "图片立方体",
-    desc: "一个旋转的立方体，每个面都是一张图片",
+    desc: "旋转的立方体，每个面都是一张图片",
     value: "ImageCube.vue",
   },
   {
     name: "小黄人",
-    desc: "一个由纯CSS制作的小黄人",
+    desc: "纯CSS制作的小黄人动画",
     value: "Minions.vue",
   },
   {
     name: "发光立方体",
-    desc: "一个由纯CSS制作的发光立方体",
+    desc: "纯CSS制作的发光立方体",
     value: "GlowingCube.vue",
   },
   {
     name: "文字立方体",
-    desc: "一个由纯CSS制作的文字立方体",
+    desc: "纯CSS制作的文字立方体",
     value: "TextCube.vue",
   },
   {
-    name: "幸运酒瓶",
-    desc: "一个由纯CSS制作的幸运转盘游戏",
+    name: "幸运轮盘",
+    desc: "纯CSS制作的幸运轮盘游戏",
     value: "LuckWheel.vue",
   },
   {
     name: "彩色时钟",
-    desc: "一个彩色柱形时钟",
+    desc: "由彩色方块组成的时钟",
     value: "ColorBarClock.vue",
   },
   {
     name: "文本时钟",
-    desc: "一个文本转动时钟",
+    desc: "文本转动组成的时钟",
     value: "TextClock.vue",
   },
   {
     name: "熔岩光线",
-    desc: "一个文本转动时钟",
+    desc: "熔岩光线特效",
     value: "LavaLight.vue",
   },
   {
     name: "PacMan",
-    desc: "一个纯CSS实现的经典PacMan吃米加载动画",
+    desc: "纯CSS实现的经典PacMan吃米加载动画",
     value: "PacMan.vue",
   },
   {
     name: "旋转文本",
-    desc: "一个纯CSS实现的文本旋转动画",
+    desc: "纯CSS实现的文本3D旋转动画",
     value: "RotateTextLoading.vue",
   },
   {
     name: "沙漏动画",
-    desc: "一个纯CSS实现的沙漏动画",
+    desc: "纯CSS实现的沙漏动画",
     value: "SandGlassLoading.vue",
   },
 ];

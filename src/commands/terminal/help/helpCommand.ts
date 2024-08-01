@@ -19,6 +19,7 @@ const helpCommand: CommandType = {
   ],
   options: [],
   collapsible: true,
+  icon:"⚙",
   action(options, terminal, parentCommand): void {
     const { _ } = options;
     // 输出所有帮助（文档 + 命令列表）
