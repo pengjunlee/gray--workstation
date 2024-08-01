@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 8px 0">
+  <div style="margin: 8px 0;color: white;">
     <canvas ref="canvasRef" class="charVideoCanvas" />
   </div>
 </template>

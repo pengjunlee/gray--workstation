@@ -27,6 +27,8 @@ interface CommandType {
   ) => void;
   // 结果是否允许折叠
   collapsible?: boolean;
+  // 分组图标
+   icon?: any;
 }
 
 /**

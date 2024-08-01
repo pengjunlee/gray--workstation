@@ -409,7 +409,7 @@ onMounted(() => {
     const output: ComponentOutputType = {
       type: "component",
       component: defineAsyncComponent(
-        () => import("../../commands/demo/TextAnimation.vue")
+        () => import("../../commands/toy/shop/TextAnimation.vue")
       ),
     };
     terminal.writeOutput(output);

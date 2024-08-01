@@ -5,7 +5,7 @@ import dateCommand from "../system/dateCommand";
 import clearCommand from "../terminal/clearCommand";
 import historyCommand from "../terminal/historyCommand";
 import userCommands from "../user/userCommands";
-import demoCommand from "../demo/demoCommand";
+import toyCommand from "../toy/toyCommand";
 import timingCommand from "../system/timing/timingCommand";
 import backgroundCommand from "../terminal/config/backgroundCommand";
 import resetCommand from "../terminal/config/resetCommand";
@@ -32,7 +32,7 @@ const commandList: CommandType[] = [
   gotoCommand,
   ...searchCommands,
   ...userCommands,
-  demoCommand,
+  toyCommand,
   hotCommand,
   formatterCommand,
   todoCommand,
