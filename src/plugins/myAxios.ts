@@ -6,8 +6,8 @@ const myAxios = axios.create({
   baseURL:
     // @ts-ignore
     process.env.NODE_ENV === "production"
-      ? "http://localhost:8081/gray-api"
-      : "/gray-api",
+      ? "http://localhost:8081/workstation-api"
+      : "/workstation-api",
 });
 
 myAxios.defaults.withCredentials = true;

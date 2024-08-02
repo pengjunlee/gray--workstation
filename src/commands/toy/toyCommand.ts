@@ -110,6 +110,11 @@ const toyList: ToyType[] = [
     desc: "纯CSS实现的沙漏动画",
     value: "SandGlassLoading.vue",
   },
+  {
+    name: "太阳系动画",
+    desc: "纯CSS实现的太阳系动画",
+    value: "SolarSystem.vue",
+  },
 ];
 
 export default toyCommand;

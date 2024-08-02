@@ -28,7 +28,7 @@
               :key="idx"
               class="terminal-row"
             >
-              <content-output :output="result" />
+              <content-output :output="result" @itemClick="itemClick"/>
             </div>
           </a-collapse-panel>
           <!-- 不折叠 -->
@@ -46,13 +46,13 @@
                 :key="idx"
                 class="terminal-row"
               >
-                <content-output :output="result" />
+                <content-output :output="result"  @itemClick="itemClick"/>
               </div>
             </template>
             <!-- 打印信息 -->
             <template v-else>
               <div class="terminal-row">
-                <content-output :output="output" />
+                <content-output :output="output"  @itemClick="itemClick"/>
               </div>
             </template>
           </template>
@@ -89,6 +89,7 @@ import {
   defineAsyncComponent,
   markRaw,
   onMounted,
+  onBeforeUnmount,
   Ref,
   ref,
   StyleValue,
@@ -98,18 +99,19 @@ import {
 import CommandOutputType = GrayTerminal.CommandOutputType;
 import OutputType = GrayTerminal.OutputType;
 import CommandInputType = GrayTerminal.CommandInputType;
-import { registerShortcuts } from "./shortcuts";
+import { registerShortcuts } from "../commands/terminal/shortcuts";
 import TerminalType = GrayTerminal.TerminalType;
 import TextOutputType = GrayTerminal.TextOutputType;
-import useHistory from "./history";
+import useHistory from "../commands/terminal/history";
 import ContentOutput from "./ContentOutput.vue";
 import OutputStatusType = GrayTerminal.OutputStatusType;
-import { useTerminalConfigStore } from "../../commands/terminal/config/terminalConfigStore";
-import useHint from "./hint";
+import { useTerminalConfigStore } from "../commands/terminal/config/terminalConfigStore";
+import useHint from "../commands/terminal/hint";
 import UserType = User.UserType;
-import { LOCAL_USER } from "../../commands/user/userConstant";
+import { LOCAL_USER } from "../commands/user/userConstant";
 import { defineStore } from "pinia";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
+import { commandMap } from "../commands/core/commandRegister";
 
 interface GrayTerminalProps {
   height?: string | number;
@@ -410,7 +412,7 @@ onMounted(() => {
     const output: ComponentOutputType = {
       type: "component",
       component: markRaw(defineAsyncComponent(
-        () => import("../../commands/toy/shop/TextAnimation.vue")
+        () => import("../commands/toy/shop/TextAnimation.vue")
       )),
     };
     terminal.writeOutput(output);
@@ -421,6 +423,37 @@ onMounted(() => {
     terminal.writeTextOutput("<br/>");
   }
 });
+
+const itemClick = async (inputText:string)=>{
+  isRunning.value = true;
+  setHint("");
+  // 执行命令
+  const newCommand: CommandOutputType = {
+    text: inputText,
+    type: "command",
+    resultList: [],
+  };
+  // 记录当前命令，便于写入结果
+  currentNewCommand = newCommand;
+  // 执行命令
+  await props.onSubmitCommand?.(inputText);
+  // 添加输出（为空也要输出换行）
+  outputList.value.push(newCommand);
+  // 不为空字符串才算是有效命令
+  if (inputText) {
+    commandList.value.push(newCommand);
+    // 重置当前要查看的命令位置
+    commandHistoryPos.value = commandList.value.length;
+  }
+  inputCommand.value = { ...initCommand };
+  // 默认展开折叠面板
+  activeKeys.value.push(outputList.value.length - 1);
+  // 自动滚到底部
+  setTimeout(() => {
+    terminalRef.value.scrollTop = terminalRef.value.scrollHeight;
+  }, 50);
+  isRunning.value = false;
+}
 
 /**
  * 当点击空白聚焦输入框

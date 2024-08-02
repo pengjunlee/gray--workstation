@@ -10,14 +10,18 @@
       :is="output.component"
       v-if="output.type === 'component'"
       v-bind="output.props ?? {}"
+      @itemClickEvent="itemClick"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import smartText from "../../utils/smartText";
+import smartText from "../utils/smartText";
 import OutputType = GrayTerminal.OutputType;
-import { computed, toRefs } from "vue";
+import { computed, toRefs, onMounted, ref } from "vue";
+
+// 声明可以触发的事件
+const emit = defineEmits(['itemClick']);
 
 interface OutputProps {
   output: OutputType;
@@ -44,6 +48,10 @@ const outputTagColor = computed((): string => {
       return "";
   }
 });
+
+function itemClick (commandText:string){
+  emit('itemClick', commandText);
+}
 </script>
 
 <style scoped>

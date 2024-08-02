@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="(toy, index) in toys" :key="index">
-        【 {{ index + 1 }} 】 {{ toy.name }}：{{ toy.desc }}
+        <a href="#" @click="$emit('itemClickEvent','toy '+ (index+1))">【 {{ index + 1 }} 】 {{ toy.name }}：{{ toy.desc }}</a>
       </li>
     </ul>
   </div>
