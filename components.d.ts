@@ -14,8 +14,8 @@ declare module '@vue/runtime-core' {
     AInput: typeof import('ant-design-vue/es')['Input']
     ARow: typeof import('ant-design-vue/es')['Row']
     ATag: typeof import('ant-design-vue/es')['Tag']
-    ContentOutput: typeof import('./src/components/gray-terminal/ContentOutput.vue')['default']
-    GrayTerminal: typeof import('./src/components/gray-terminal/GrayTerminal.vue')['default']
+    ContentOutput: typeof import('./src/components/ContentOutput.vue')['default']
+    GrayTerminal: typeof import('./src/components/GrayTerminal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
