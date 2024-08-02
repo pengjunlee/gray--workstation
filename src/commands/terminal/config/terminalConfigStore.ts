@@ -14,7 +14,7 @@ export const useTerminalConfigStore = defineStore("terminalConfig", {
     // 终端欢迎语
     welcomeTexts: [] as string[],
     // 后台服务请求地址
-    apiHost: "http://localhost:8081/gray-api",
+    apiHost: "http://pengjunlee.oicp.net/workstation-api",
   }),
   getters: {},
   // 持久化
