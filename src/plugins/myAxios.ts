@@ -6,7 +6,7 @@ const myAxios = axios.create({
   baseURL:
     // @ts-ignore
     process.env.NODE_ENV === "production"
-      ? "http://localhost:8081/workstation-api"
+      ? "http://pengjunlee.oicp.net/workstation-api"
       : "/workstation-api",
 });
 

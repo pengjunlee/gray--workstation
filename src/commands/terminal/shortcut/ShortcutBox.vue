@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { shortcutList } from "../../../components/gray-terminal/shortcuts";
+import { shortcutList } from "../shortcuts";
 
 onMounted(() => {});
 </script>
