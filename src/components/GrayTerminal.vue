@@ -109,9 +109,7 @@ import { useTerminalConfigStore } from "../commands/terminal/config/terminalConf
 import useHint from "../commands/terminal/hint";
 import UserType = User.UserType;
 import { LOCAL_USER } from "../commands/user/userConstant";
-import { defineStore } from "pinia";
 import ComponentOutputType = GrayTerminal.ComponentOutputType;
-import { commandMap } from "../commands/core/commandRegister";
 
 interface GrayTerminalProps {
   height?: string | number;

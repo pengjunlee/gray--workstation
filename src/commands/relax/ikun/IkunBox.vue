@@ -8,11 +8,15 @@
 import { onMounted, ref } from "vue";
 // @ts-ignore
 import CharVideo from "./charVideo";
+import { useTerminalConfigStore } from "../../../commands/terminal/config/terminalConfigStore";
+
+// 引入终端配置状态
+const configStore = useTerminalConfigStore();
 
 const getBlob = () => {
   return new Promise((resolve) => {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8081/gray-api/resource/ikun.mp4", true);
+    xhr.open("GET", configStore.apiHost + "/resource/ikun.mp4", true);
     xhr.responseType = "blob";
     xhr.onload = () => {
       if (xhr.status === 200) {

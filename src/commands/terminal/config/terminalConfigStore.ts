@@ -14,7 +14,7 @@ export const useTerminalConfigStore = defineStore("terminalConfig", {
     // 终端欢迎语
     welcomeTexts: [] as string[],
     // 后台服务请求地址
-    apiHost: "http://pengjunlee.oicp.net/workstation-api",
+    apiHost: "https://8g76m0325.vicp.fun/workstation-api",
   }),
   getters: {},
   // 持久化

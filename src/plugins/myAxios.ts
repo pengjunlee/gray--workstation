@@ -1,12 +1,16 @@
 import axios from "axios";
 import { getToken, setToken, removeToken } from "./auth";
+import { useTerminalConfigStore } from "../commands/terminal/config/terminalConfigStore";
+
+// 引入终端配置状态
+const configStore = useTerminalConfigStore();
 
 // 自定义 axios 实例
 const myAxios = axios.create({
   baseURL:
     // @ts-ignore
     process.env.NODE_ENV === "production"
-      ? "https://8g76m0325.vicp.fun/workstation-api"
+      ? configStore.apiHost
       : "/workstation-api",
 });
 
