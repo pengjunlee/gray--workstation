@@ -13,8 +13,6 @@ export const useTerminalConfigStore = defineStore("terminalConfig", {
     showHint: true,
     // 终端欢迎语
     welcomeTexts: [] as string[],
-    // 后台服务请求地址
-    apiHost: "https://8g76m0325.vicp.fun/workstation-api",
   }),
   getters: {},
   // 持久化
@@ -60,13 +58,6 @@ export const useTerminalConfigStore = defineStore("terminalConfig", {
      */
     setWelcomeTexts(welcomeTexts: string[]) {
       this.welcomeTexts = welcomeTexts;
-    },
-    /**
-     * 修改服务端地址
-     * @param apiHost
-     */
-    setApiHost(apiHost: string) {
-      this.apiHost = apiHost;
     },
     reset() {
       this.$reset();
