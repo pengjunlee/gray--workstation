@@ -28,7 +28,7 @@
               :key="idx"
               class="terminal-row"
             >
-              <content-output :output="result" @itemClick="doSubmitCommand"/>
+              <content-output :output="result" @itemClick="itemClick"/>
             </div>
           </a-collapse-panel>
           <!-- 不折叠 -->
@@ -46,13 +46,13 @@
                 :key="idx"
                 class="terminal-row"
               >
-                <content-output :output="result"  @itemClick="doSubmitCommand"/>
+                <content-output :output="result"  @itemClick="itemClick"/>
               </div>
             </template>
             <!-- 打印信息 -->
             <template v-else>
               <div class="terminal-row">
-                <content-output :output="output"  @itemClick="doSubmitCommand"/>
+                <content-output :output="output"  @itemClick="itemClick"/>
               </div>
             </template>
           </template>
