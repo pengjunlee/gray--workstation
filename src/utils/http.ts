@@ -17,4 +17,4 @@ class Http {
 }
 
 export default new Http();
-export const wrapperUrl = (url: string) => `/gray-api${url}`;
+export const wrapperUrl = (url: string) => `/website-api${url}`;

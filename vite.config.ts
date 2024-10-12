@@ -29,7 +29,7 @@ export default defineConfig({
     // 本地跨域代理 https://cn.vitejs.dev/config/server-options.html#server-proxy
     proxy: {
       // 第一个代理后端地址
-      "^/workstation-api": {
+      "^/website-api": {
         target: "http://localhost:8081",
         // target: "http://192.168.2.2:8091",
         changeOrigin: true,

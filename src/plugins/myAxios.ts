@@ -9,7 +9,7 @@ const myAxios = axios.create({
     // @ts-ignore
     process.env.NODE_ENV === "production"
       ? globalConfig.apiHost
-      : "/workstation-api",
+      : "/website-api",
 });
 
 myAxios.defaults.withCredentials = true;
